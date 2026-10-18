@@ -40,10 +40,10 @@ Record your plan here before editing code.
 
 ## Test plan
 
-Run these checks after implementation changes. A failing test points to a behavior mismatch in that tier; a failing build points to a TypeScript or bundling problem.
+Record the commands you run and what each failure means.
 
-- Data tier: `npm run test:data --prefix octofit-tracker/backend` — **PASS (5 tests)**. Failures indicate a Mongoose schema or seed-data contract mismatch.
-- API: `npm run test:api --prefix octofit-tracker/backend` — **PASS (4 tests)**. Failures indicate incorrect request validation, persistence, leaderboard calculations, or workout recommendations.
-- Frontend: `npm test --prefix octofit-tracker/frontend` — **PASS (15 tests)**. Failures indicate mismatched API calls or missing rendering, loading, empty, error, or accessible UI states.
+- Data tier: `npm run test:data --prefix octofit-tracker/backend` — Initial run: 4 failed, 1 passed because required model validation was missing. Final run: **PASS (5 tests)**. Failures indicate a Mongoose schema or seed-data contract mismatch.
+- API: `npm run test:api --prefix octofit-tracker/backend` — Initial run: 4 failed because the service behavior did not match the API contract. Final run: **PASS (4 tests)**. Failures indicate incorrect request validation, persistence, leaderboard calculations, or workout recommendations.
+- Frontend: `npm test --prefix octofit-tracker/frontend` — Initial run: 15 failed because views and API response handling did not match the presentation contract. Final run: **PASS (15 tests)**. Failures indicate mismatched API calls or missing rendering, loading, empty, error, or accessible UI states.
 - Backend build: `npm run build --prefix octofit-tracker/backend` — **PASS**. Failures indicate backend TypeScript type-check errors.
 - Frontend build: `npm run build --prefix octofit-tracker/frontend` — **PASS**. Failures indicate frontend type-check or Vite production-build errors.
